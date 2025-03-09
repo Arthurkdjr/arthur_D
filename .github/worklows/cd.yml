@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CD Pipeline
 
 on:
   push:
@@ -13,3 +13,23 @@ jobs:
       # Étape 1 : Récupérer le code
       - name: Checkout code
         uses: actions/checkout@v2
+
+   # Étape 3 : Installer les dépendances Angular
+      - name: Install Angular dependencies
+        run: |
+         cd frontend 
+          npm install
+   # Étape 4 : Builder l'application Angular
+      - name: Build Angular project
+        run: |
+          cd frontend
+          npm run build
+
+
+      - name: Package application
+        run: |
+           zip -r application.zip . -x "node_modules/*" "vendor/*
+
+      - name: Build Docker image
+        run: 
+         docker build -t my-app:latest .
