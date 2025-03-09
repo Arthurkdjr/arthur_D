@@ -1,0 +1,35 @@
+<!-- entete -->
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="fs-1">Etudiants  - {{les_etudiantss.length}}</div>
+    <div class="d-flex">
+      <button class="btn btn-primary" (click)="openModal_add_etudiants()">Ajouter Etudiants</button>
+    </div>
+  </div>
+  <!-- Liste des éléments -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">student_id</th>
+<th scope="col">first_name</th>
+<th scope="col">last_name</th>
+<th scope="col">date_of_birth</th>
+<th scope="col">class_id</th><th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (one_etudiants of les_etudiantss; track one_etudiants) {
+          <tr>
+            <td>{{one_etudiants.student_id}}</td>
+<td>{{one_etudiants.first_name}}</td>
+<td>{{one_etudiants.last_name}}</td>
+<td>{{one_etudiants.date_of_birth}}</td>
+<td>{{one_etudiants.class_id}}</td><td>
+    <i style="cursor: pointer;" class="bi bi-pencil-square me-2" (click)="openModal_edit_etudiants(one_etudiants)"></i>
+    <i style="cursor: pointer;" class="bi bi-trash" (click)="delete_etudiants(one_etudiants)"></i>
+</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>

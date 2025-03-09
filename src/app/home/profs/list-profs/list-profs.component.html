@@ -1,0 +1,35 @@
+<!-- entete -->
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="fs-1">Profs  - {{les_profss.length}}</div>
+    <div class="d-flex">
+      <button class="btn btn-primary" (click)="openModal_add_profs()">Ajouter Profs</button>
+    </div>
+  </div>
+  <!-- Liste des éléments -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">prof_id</th>
+<th scope="col">first_name</th>
+<th scope="col">last_name</th>
+<th scope="col">email</th>
+<th scope="col">phone</th><th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (one_profs of les_profss; track one_profs) {
+          <tr>
+            <td>{{one_profs.prof_id}}</td>
+<td>{{one_profs.first_name}}</td>
+<td>{{one_profs.last_name}}</td>
+<td>{{one_profs.email}}</td>
+<td>{{one_profs.phone}}</td><td>
+    <i style="cursor: pointer;" class="bi bi-pencil-square me-2" (click)="openModal_edit_profs(one_profs)"></i>
+    <i style="cursor: pointer;" class="bi bi-trash" (click)="delete_profs(one_profs)"></i>
+</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>

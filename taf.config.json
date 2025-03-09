@@ -1,0 +1,836 @@
+{
+    "projectName": "projet1.angular",
+    "decription": "Fichier de configuration de Taf",
+    "taf_base_url": "http:\/\/localhost\/App_DevOps\/backend\/",
+    "les_modules": [
+        {
+            "module": "home",
+            "les_tables": [
+                {
+                    "table": "classes",
+                    "description": [
+                        "class_id",
+                        "class_name",
+                        "niveau"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "classes",
+                        "cle_primaire": {
+                            "Field": "class_id",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "classes"
+                        ],
+                        "les_referenced_table": [],
+                        "les_colonnes": [
+                            {
+                                "Field": "class_id",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "class_name",
+                                "Type": "varchar(100)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "niveau",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "cours",
+                    "description": [
+                        "course_id",
+                        "course_name",
+                        "description",
+                        "class_id"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "cours",
+                        "cle_primaire": {
+                            "Field": "course_id",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "cours",
+                            "classes"
+                        ],
+                        "les_referenced_table": [
+                            "classes"
+                        ],
+                        "les_colonnes": [
+                            {
+                                "Field": "course_id",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "course_name",
+                                "Type": "varchar(100)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "description",
+                                "Type": "text",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "class_id",
+                                "Type": "int(11)",
+                                "Null": "YES",
+                                "Key": "MUL",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne class_id de la table classes",
+                                "table": {
+                                    "TABLE_NAME": "cours",
+                                    "COLUMN_NAME": "class_id",
+                                    "REFERENCED_TABLE_NAME": "classes",
+                                    "REFERENCED_COLUMN_NAME": "class_id"
+                                },
+                                "table_existant": false,
+                                "referenced_table": {
+                                    "table_name": "classes",
+                                    "cle_primaire": {
+                                        "Field": "class_id",
+                                        "Type": "int(11)",
+                                        "Null": "NO",
+                                        "Key": "PRI",
+                                        "Default": null,
+                                        "Extra": "auto_increment",
+                                        "explications": "cl\u00e9 primaire"
+                                    },
+                                    "les_based_table_name": [
+                                        "cours",
+                                        "classes"
+                                    ],
+                                    "les_referenced_table": [],
+                                    "les_colonnes": [
+                                        {
+                                            "Field": "class_id",
+                                            "Type": "int(11)",
+                                            "Null": "NO",
+                                            "Key": "PRI",
+                                            "Default": null,
+                                            "Extra": "auto_increment",
+                                            "explications": "cl\u00e9 primaire"
+                                        },
+                                        {
+                                            "Field": "class_name",
+                                            "Type": "varchar(100)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "niveau",
+                                            "Type": "varchar(50)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "emploi_du_temps",
+                    "description": [
+                        "schedule_id",
+                        "course_id",
+                        "prof_id",
+                        "class_id",
+                        "start_time",
+                        "end_time"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "emploi_du_temps",
+                        "cle_primaire": {
+                            "Field": "schedule_id",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "emploi_du_temps",
+                            "cours",
+                            "profs",
+                            "classes"
+                        ],
+                        "les_referenced_table": [
+                            "cours",
+                            "profs",
+                            "classes"
+                        ],
+                        "les_colonnes": [
+                            {
+                                "Field": "schedule_id",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "course_id",
+                                "Type": "int(11)",
+                                "Null": "YES",
+                                "Key": "MUL",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne course_id de la table cours",
+                                "table": {
+                                    "TABLE_NAME": "emploi_du_temps",
+                                    "COLUMN_NAME": "course_id",
+                                    "REFERENCED_TABLE_NAME": "cours",
+                                    "REFERENCED_COLUMN_NAME": "course_id"
+                                },
+                                "table_existant": false,
+                                "referenced_table": {
+                                    "table_name": "cours",
+                                    "cle_primaire": {
+                                        "Field": "course_id",
+                                        "Type": "int(11)",
+                                        "Null": "NO",
+                                        "Key": "PRI",
+                                        "Default": null,
+                                        "Extra": "auto_increment",
+                                        "explications": "cl\u00e9 primaire"
+                                    },
+                                    "les_based_table_name": [
+                                        "emploi_du_temps",
+                                        "cours",
+                                        "classes"
+                                    ],
+                                    "les_referenced_table": [
+                                        "classes"
+                                    ],
+                                    "les_colonnes": [
+                                        {
+                                            "Field": "course_id",
+                                            "Type": "int(11)",
+                                            "Null": "NO",
+                                            "Key": "PRI",
+                                            "Default": null,
+                                            "Extra": "auto_increment",
+                                            "explications": "cl\u00e9 primaire"
+                                        },
+                                        {
+                                            "Field": "course_name",
+                                            "Type": "varchar(100)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "description",
+                                            "Type": "text",
+                                            "Null": "YES",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "class_id",
+                                            "Type": "int(11)",
+                                            "Null": "YES",
+                                            "Key": "MUL",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne class_id de la table classes",
+                                            "table": {
+                                                "TABLE_NAME": "cours",
+                                                "COLUMN_NAME": "class_id",
+                                                "REFERENCED_TABLE_NAME": "classes",
+                                                "REFERENCED_COLUMN_NAME": "class_id"
+                                            },
+                                            "table_existant": false,
+                                            "referenced_table": {
+                                                "table_name": "classes",
+                                                "cle_primaire": {
+                                                    "Field": "class_id",
+                                                    "Type": "int(11)",
+                                                    "Null": "NO",
+                                                    "Key": "PRI",
+                                                    "Default": null,
+                                                    "Extra": "auto_increment",
+                                                    "explications": "cl\u00e9 primaire"
+                                                },
+                                                "les_based_table_name": [
+                                                    "emploi_du_temps",
+                                                    "cours",
+                                                    "classes"
+                                                ],
+                                                "les_referenced_table": [],
+                                                "les_colonnes": [
+                                                    {
+                                                        "Field": "class_id",
+                                                        "Type": "int(11)",
+                                                        "Null": "NO",
+                                                        "Key": "PRI",
+                                                        "Default": null,
+                                                        "Extra": "auto_increment",
+                                                        "explications": "cl\u00e9 primaire"
+                                                    },
+                                                    {
+                                                        "Field": "class_name",
+                                                        "Type": "varchar(100)",
+                                                        "Null": "NO",
+                                                        "Key": "",
+                                                        "Default": null,
+                                                        "Extra": "",
+                                                        "explications": ""
+                                                    },
+                                                    {
+                                                        "Field": "niveau",
+                                                        "Type": "varchar(50)",
+                                                        "Null": "NO",
+                                                        "Key": "",
+                                                        "Default": null,
+                                                        "Extra": "",
+                                                        "explications": ""
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "Field": "prof_id",
+                                "Type": "int(11)",
+                                "Null": "YES",
+                                "Key": "MUL",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne prof_id de la table profs",
+                                "table": {
+                                    "TABLE_NAME": "emploi_du_temps",
+                                    "COLUMN_NAME": "prof_id",
+                                    "REFERENCED_TABLE_NAME": "profs",
+                                    "REFERENCED_COLUMN_NAME": "prof_id"
+                                },
+                                "table_existant": false,
+                                "referenced_table": {
+                                    "table_name": "profs",
+                                    "cle_primaire": {
+                                        "Field": "prof_id",
+                                        "Type": "int(11)",
+                                        "Null": "NO",
+                                        "Key": "PRI",
+                                        "Default": null,
+                                        "Extra": "auto_increment",
+                                        "explications": "cl\u00e9 primaire"
+                                    },
+                                    "les_based_table_name": [
+                                        "emploi_du_temps",
+                                        "cours",
+                                        "profs"
+                                    ],
+                                    "les_referenced_table": [],
+                                    "les_colonnes": [
+                                        {
+                                            "Field": "prof_id",
+                                            "Type": "int(11)",
+                                            "Null": "NO",
+                                            "Key": "PRI",
+                                            "Default": null,
+                                            "Extra": "auto_increment",
+                                            "explications": "cl\u00e9 primaire"
+                                        },
+                                        {
+                                            "Field": "first_name",
+                                            "Type": "varchar(50)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "last_name",
+                                            "Type": "varchar(50)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "email",
+                                            "Type": "varchar(100)",
+                                            "Null": "YES",
+                                            "Key": "UNI",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "phone",
+                                            "Type": "varchar(20)",
+                                            "Null": "YES",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "Field": "class_id",
+                                "Type": "int(11)",
+                                "Null": "YES",
+                                "Key": "MUL",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne class_id de la table classes",
+                                "table": {
+                                    "TABLE_NAME": "emploi_du_temps",
+                                    "COLUMN_NAME": "class_id",
+                                    "REFERENCED_TABLE_NAME": "classes",
+                                    "REFERENCED_COLUMN_NAME": "class_id"
+                                },
+                                "table_existant": false,
+                                "referenced_table": {
+                                    "table_name": "classes",
+                                    "cle_primaire": {
+                                        "Field": "class_id",
+                                        "Type": "int(11)",
+                                        "Null": "NO",
+                                        "Key": "PRI",
+                                        "Default": null,
+                                        "Extra": "auto_increment",
+                                        "explications": "cl\u00e9 primaire"
+                                    },
+                                    "les_based_table_name": [
+                                        "emploi_du_temps",
+                                        "cours",
+                                        "profs",
+                                        "classes"
+                                    ],
+                                    "les_referenced_table": [],
+                                    "les_colonnes": [
+                                        {
+                                            "Field": "class_id",
+                                            "Type": "int(11)",
+                                            "Null": "NO",
+                                            "Key": "PRI",
+                                            "Default": null,
+                                            "Extra": "auto_increment",
+                                            "explications": "cl\u00e9 primaire"
+                                        },
+                                        {
+                                            "Field": "class_name",
+                                            "Type": "varchar(100)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "niveau",
+                                            "Type": "varchar(50)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "Field": "start_time",
+                                "Type": "datetime",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "end_time",
+                                "Type": "datetime",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "etudiants",
+                    "description": [
+                        "student_id",
+                        "first_name",
+                        "last_name",
+                        "date_of_birth",
+                        "class_id"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "etudiants",
+                        "cle_primaire": {
+                            "Field": "student_id",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "etudiants",
+                            "classes"
+                        ],
+                        "les_referenced_table": [
+                            "classes"
+                        ],
+                        "les_colonnes": [
+                            {
+                                "Field": "student_id",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "first_name",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "last_name",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "date_of_birth",
+                                "Type": "date",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "class_id",
+                                "Type": "int(11)",
+                                "Null": "YES",
+                                "Key": "MUL",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne class_id de la table classes",
+                                "table": {
+                                    "TABLE_NAME": "etudiants",
+                                    "COLUMN_NAME": "class_id",
+                                    "REFERENCED_TABLE_NAME": "classes",
+                                    "REFERENCED_COLUMN_NAME": "class_id"
+                                },
+                                "table_existant": false,
+                                "referenced_table": {
+                                    "table_name": "classes",
+                                    "cle_primaire": {
+                                        "Field": "class_id",
+                                        "Type": "int(11)",
+                                        "Null": "NO",
+                                        "Key": "PRI",
+                                        "Default": null,
+                                        "Extra": "auto_increment",
+                                        "explications": "cl\u00e9 primaire"
+                                    },
+                                    "les_based_table_name": [
+                                        "etudiants",
+                                        "classes"
+                                    ],
+                                    "les_referenced_table": [],
+                                    "les_colonnes": [
+                                        {
+                                            "Field": "class_id",
+                                            "Type": "int(11)",
+                                            "Null": "NO",
+                                            "Key": "PRI",
+                                            "Default": null,
+                                            "Extra": "auto_increment",
+                                            "explications": "cl\u00e9 primaire"
+                                        },
+                                        {
+                                            "Field": "class_name",
+                                            "Type": "varchar(100)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        },
+                                        {
+                                            "Field": "niveau",
+                                            "Type": "varchar(50)",
+                                            "Null": "NO",
+                                            "Key": "",
+                                            "Default": null,
+                                            "Extra": "",
+                                            "explications": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "profs",
+                    "description": [
+                        "prof_id",
+                        "first_name",
+                        "last_name",
+                        "email",
+                        "phone"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "profs",
+                        "cle_primaire": {
+                            "Field": "prof_id",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "profs"
+                        ],
+                        "les_referenced_table": [],
+                        "les_colonnes": [
+                            {
+                                "Field": "prof_id",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "first_name",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "last_name",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "email",
+                                "Type": "varchar(100)",
+                                "Null": "YES",
+                                "Key": "UNI",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "phone",
+                                "Type": "varchar(20)",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "utilisateurs",
+                    "description": [
+                        "id",
+                        "username",
+                        "email",
+                        "mot_de_passe"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "utilisateurs",
+                        "cle_primaire": {
+                            "Field": "id",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "utilisateurs"
+                        ],
+                        "les_referenced_table": [],
+                        "les_colonnes": [
+                            {
+                                "Field": "id",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "username",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "email",
+                                "Type": "varchar(50)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "mot_de_passe",
+                                "Type": "varchar(100)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                }
+            ]
+        },
+        {
+            "module": "public",
+            "les_tables": [
+                {
+                    "table": "login",
+                    "description": [
+                        "login",
+                        "pwd"
+                    ],
+                    "les_types": [
+                        "login"
+                    ]
+                }
+            ]
+        }
+    ]
+}

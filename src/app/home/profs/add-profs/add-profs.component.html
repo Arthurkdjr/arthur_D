@@ -1,0 +1,86 @@
+<div class="modal-header" data-bs-theme="ligth">
+      <h1 class="modal-title fs-5">Ajouter profs</h1>
+      <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="reactiveForm_add_profs" 
+            (ngSubmit)="onSubmit_add_profs()" 
+            #form_add_profs="ngForm" 
+            class="row">
+        
+            <!-- Champ First Name -->
+            <div class="form-group col-sm-6">
+              <label>First Name</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="first_name" 
+                     placeholder="First Name"  
+                     [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"/>
+              @if (submitted && f.first_name.errors) {
+                <div class="invalid-feedback">
+                  @if (f.first_name.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Last Name -->
+            <div class="form-group col-sm-6">
+              <label>Last Name</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="last_name" 
+                     placeholder="Last Name"  
+                     [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"/>
+              @if (submitted && f.last_name.errors) {
+                <div class="invalid-feedback">
+                  @if (f.last_name.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Email -->
+            <div class="form-group col-sm-6">
+              <label>Email</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="email" 
+                     placeholder="Email"  
+                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+              @if (submitted && f.email.errors) {
+                <div class="invalid-feedback">
+                  @if (f.email.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Phone -->
+            <div class="form-group col-sm-6">
+              <label>Phone</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="phone" 
+                     placeholder="Phone"  
+                     [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"/>
+              @if (submitted && f.phone.errors) {
+                <div class="invalid-feedback">
+                  @if (f.phone.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_profs || loading_get_details_add_profs_form"
+      (click)="form_add_profs.ngSubmit.emit()">
+      {{ loading_add_profs ? "En cours ..." : "Valider" }}
+      </button>
+      <button type="button" class="btn btn-outline-danger" (click)="activeModal.close()">Fermer</button>
+    </div>

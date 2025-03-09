@@ -1,0 +1,33 @@
+<!-- entete -->
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="fs-1">Utilisateurs  - {{les_utilisateurss.length}}</div>
+    <div class="d-flex">
+      <button class="btn btn-primary" (click)="openModal_add_utilisateurs()">Ajouter Utilisateurs</button>
+    </div>
+  </div>
+  <!-- Liste des éléments -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+<th scope="col">username</th>
+<th scope="col">email</th>
+<th scope="col">mot_de_passe</th><th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (one_utilisateurs of les_utilisateurss; track one_utilisateurs) {
+          <tr>
+            <td>{{one_utilisateurs.id}}</td>
+<td>{{one_utilisateurs.username}}</td>
+<td>{{one_utilisateurs.email}}</td>
+<td>{{one_utilisateurs.mot_de_passe}}</td><td>
+    <i style="cursor: pointer;" class="bi bi-pencil-square me-2" (click)="openModal_edit_utilisateurs(one_utilisateurs)"></i>
+    <i style="cursor: pointer;" class="bi bi-trash" (click)="delete_utilisateurs(one_utilisateurs)"></i>
+</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,91 @@
+<div class="modal-header" data-bs-theme="ligth">
+      <h1 class="modal-title fs-5">Ajouter etudiants</h1>
+      <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="reactiveForm_add_etudiants" 
+            (ngSubmit)="onSubmit_add_etudiants()" 
+            #form_add_etudiants="ngForm" 
+            class="row">
+        
+            <!-- Champ First Name -->
+            <div class="form-group col-sm-6">
+              <label>First Name</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="first_name" 
+                     placeholder="First Name"  
+                     [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"/>
+              @if (submitted && f.first_name.errors) {
+                <div class="invalid-feedback">
+                  @if (f.first_name.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Last Name -->
+            <div class="form-group col-sm-6">
+              <label>Last Name</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="last_name" 
+                     placeholder="Last Name"  
+                     [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"/>
+              @if (submitted && f.last_name.errors) {
+                <div class="invalid-feedback">
+                  @if (f.last_name.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Date Of Birth -->
+            <div class="form-group col-sm-6">
+              <label>Date Of Birth</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="date_of_birth" 
+                     placeholder="Date Of Birth"  
+                     [ngClass]="{ 'is-invalid': submitted && f.date_of_birth.errors }"/>
+              @if (submitted && f.date_of_birth.errors) {
+                <div class="invalid-feedback">
+                  @if (f.date_of_birth.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Class Id (Clé étrangère vers classes) -->
+            <div class="form-group col-sm-6">
+              <label>Classes</label>
+              <select [ngClass]="{ 'is-invalid': submitted && f.class_id.errors }" 
+                      class="form-select" 
+                      formControlName="class_id">
+                <option value="">Sélectionnez un(e) Classes</option>
+                @for (one_classes of form_details?.les_classess; track $index) {
+                  <option [value]="one_classes.class_id">
+                    {{ "N°" + one_classes.class_id }}
+                  </option>
+                } 
+              </select>
+              @if (submitted && f.class_id.errors) {
+                <div class="invalid-feedback">
+                  @if (f.class_id.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_etudiants || loading_get_details_add_etudiants_form"
+      (click)="form_add_etudiants.ngSubmit.emit()">
+      {{ loading_add_etudiants ? "En cours ..." : "Valider" }}
+      </button>
+      <button type="button" class="btn btn-outline-danger" (click)="activeModal.close()">Fermer</button>
+    </div>

@@ -1,0 +1,31 @@
+<!-- entete -->
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="fs-1">Classes  - {{les_classess.length}}</div>
+    <div class="d-flex">
+      <button class="btn btn-primary" (click)="openModal_add_classes()">Ajouter Classes</button>
+    </div>
+  </div>
+  <!-- Liste des éléments -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">class_id</th>
+<th scope="col">class_name</th>
+<th scope="col">niveau</th><th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (one_classes of les_classess; track one_classes) {
+          <tr>
+            <td>{{one_classes.class_id}}</td>
+<td>{{one_classes.class_name}}</td>
+<td>{{one_classes.niveau}}</td><td>
+    <i style="cursor: pointer;" class="bi bi-pencil-square me-2" (click)="openModal_edit_classes(one_classes)"></i>
+    <i style="cursor: pointer;" class="bi bi-trash" (click)="delete_classes(one_classes)"></i>
+</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>

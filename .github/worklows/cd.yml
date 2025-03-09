@@ -1,0 +1,15 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Récupérer le code
+      - name: Checkout code
+        uses: actions/checkout@v2

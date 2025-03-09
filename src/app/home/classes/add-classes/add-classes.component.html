@@ -1,0 +1,52 @@
+<div class="modal-header" data-bs-theme="ligth">
+      <h1 class="modal-title fs-5">Ajouter classes</h1>
+      <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="reactiveForm_add_classes" 
+            (ngSubmit)="onSubmit_add_classes()" 
+            #form_add_classes="ngForm" 
+            class="row">
+        
+            <!-- Champ Class Name -->
+            <div class="form-group col-sm-6">
+              <label>Class Name</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="class_name" 
+                     placeholder="Class Name"  
+                     [ngClass]="{ 'is-invalid': submitted && f.class_name.errors }"/>
+              @if (submitted && f.class_name.errors) {
+                <div class="invalid-feedback">
+                  @if (f.class_name.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Champ Niveau -->
+            <div class="form-group col-sm-6">
+              <label>Niveau</label>
+              <input class="form-control" 
+                     type="text" 
+                     formControlName="niveau" 
+                     placeholder="Niveau"  
+                     [ngClass]="{ 'is-invalid': submitted && f.niveau.errors }"/>
+              @if (submitted && f.niveau.errors) {
+                <div class="invalid-feedback">
+                  @if (f.niveau.errors.required) {
+                    <div>Ce champ est obligatoire</div>
+                  }
+                </div>
+              }
+            </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_classes || loading_get_details_add_classes_form"
+      (click)="form_add_classes.ngSubmit.emit()">
+      {{ loading_add_classes ? "En cours ..." : "Valider" }}
+      </button>
+      <button type="button" class="btn btn-outline-danger" (click)="activeModal.close()">Fermer</button>
+    </div>
