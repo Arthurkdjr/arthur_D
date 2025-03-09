@@ -1,4 +1,4 @@
-name: CD Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -14,17 +14,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-   # Étape 3 : Installer les dépendances Angular
+      # Étape 3 : Installer les dépendances Angular
       - name: Install Angular dependencies
         run: |
          cd frontend 
           npm install
-   # Étape 4 : Builder l'application Angular
+
+        
+
+     # Étape 4 : Builder l'application Angular
       - name: Build Angular project
         run: |
           cd frontend
           npm run build
 
+        
+    # Étape 6 : Exécuter les tests Angular
+      - name: Run Angular tests
+        run: |
+         cd frontend
+         npm run test
 
       - name: Package application
         run: |
